@@ -9,7 +9,6 @@ const routeSetup: Routes = {
     route: "templates",
     id: "id",
     controller: Controller
-    
 };
 
 export class TemplatesRoutes extends GenericRoutes {

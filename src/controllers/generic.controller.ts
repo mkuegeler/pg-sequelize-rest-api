@@ -1,8 +1,11 @@
 import express from 'express';
 import Service from '../services/templates.service';
 
-class Controller {
-
+export abstract class GenericController {
+   
+    constructor() {
+        console.log("Generic Controller");
+    }
     async all(req: express.Request, res: express.Response) {
         const services = await Service.all(100, 0);
         res.status(200).send(services);
@@ -32,12 +35,4 @@ class Controller {
         await Service.delete(Number(req.params.id));
         res.status(204).send();
     }
-
-    async render(req: express.Request, res: express.Response) {
-      let result:string = "render a template";
-        res.status(200).send(result);
-    }
-
 }
-
-export default new Controller();
