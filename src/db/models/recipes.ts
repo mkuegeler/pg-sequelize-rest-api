@@ -2,19 +2,18 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from ".";
 
-export class Templates extends Model {
+export class Recipes extends Model {
     public name!: string;
-    public type!: string;
     public doc: any
 }
 
-Templates.init(
+Recipes.init(
     {
 
         name: {
             type: new DataTypes.STRING(50),
             allowNull: false,
-            unique: true 
+            unique: true
         },
         type: {
             type: new DataTypes.STRING(50),
@@ -26,7 +25,7 @@ Templates.init(
         }
     },
     {
-        tableName: "Templates",
+        tableName: "Recipes",
         sequelize, // passing the `sequelize` instance is required
     }
 );

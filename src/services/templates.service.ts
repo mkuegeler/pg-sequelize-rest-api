@@ -1,14 +1,12 @@
 import TemplatesDao from '../dao/templates.dao'
 import { CRUD } from '../interfaces/crud.interface';
-import { PostTemplateDto } from '../dto/post.template.dto';
-import { PatchTemplateDto } from '../dto/patch.template.dto';
-import { PutTemplateDto } from '../dto/put.template.dto';
+import { PostTemplateDto, PutTemplateDto, PatchTemplateDto } from "src/dto/";
 
 // import { createDocument, viewDocument, markup_document } from '../app/markup-generator';
 
 // import { template_lib } from '../assets/index';
 
-class TemplatesService implements CRUD {
+class Service implements CRUD {
 
     async all (limit: number, page: number) {
         return TemplatesDao.all();
@@ -30,4 +28,4 @@ class TemplatesService implements CRUD {
     }
 }
 
-export default new TemplatesService();
+export default new Service();

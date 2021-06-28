@@ -12,5 +12,12 @@
             "type": "string",
             "doc": "json"
         }
+    },
+    {
+        "name": "Recipes",
+        "attributes": {
+            "name": "string",
+            "doc": "json"
+        }
     }
 ]

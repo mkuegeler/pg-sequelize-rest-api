@@ -1,9 +1,11 @@
 // export { CommonRoutesConfig } from './common.routes.config';
 import express from 'express';
 import { TemplatesRoutes } from './templates.routes';
+import { RecipesRoutes } from './recipes.routes';
 
 const routeList:any = [
-    TemplatesRoutes
+    TemplatesRoutes,
+    RecipesRoutes
 ]
 
 export class AllRoutes {

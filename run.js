@@ -73,7 +73,8 @@ function migrations_to(to) {
 }
 
 function seed(model) {
-    execute(`npx sequelize-cli seed:generate --name seed-${model}`);
+    let prefix = 'demo';
+    execute(`npx sequelize-cli seed:generate --name ${prefix}-${model}`);
 }
 
 function seed_all() {

@@ -1,0 +1,28 @@
+[
+    {
+        "name": "html-sample-page",
+        "type": "html",
+        "doc": [
+            {
+                "index": 0,
+                "template": "document"
+            },
+            {
+                "index": 1,
+                "template": "meta"
+            },
+            {
+                "index": 2,
+                "template": "link"
+            },
+            {
+                "index": 3,
+                "template": "header"
+            },
+            {
+                "index": 4,
+                "template": "script"
+            }
+        ]
+    }
+]

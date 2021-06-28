@@ -1,0 +1,9 @@
+[
+    {
+        "name": "Recipes",
+        "attributes": {
+            "name": "string",
+            "doc": "json"
+        }
+    }
+]

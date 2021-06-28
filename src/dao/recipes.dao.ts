@@ -1,20 +1,20 @@
 // template DAO
-import { Templates } from "../db/models/templates";
-import { PostTemplateDto, PutTemplateDto, PatchTemplateDto } from "src/dto/";
+import { Recipes } from "../db/models/recipes";
+import { PostRecipeDto, PutRecipeDto, PatchRecipeDto } from "src/dto/";
 
-class TemplatesDao {
-    public daos: Array<PostTemplateDto> = [];
+class RecipesDao {
+    public daos: Array<PostRecipeDto> = [];
     constructor() {
-        console.log('Created new instance of TemplatesDao');
+        console.log('Created new instance of RecipesDao');
         this.init();
     }
     private async init() {
-        const result = await Templates.findAll({ include: [{ all: true }] });
+        const result = await Recipes.findAll({ include: [{ all: true }] });
         this.daos = [];
 
         // Map the ORM object to the DTO
         result.forEach(record => {
-            let dto: PostTemplateDto = {
+            let dto: PostRecipeDto = {
                 id: Number(record.getDataValue("id")),
                 name: record.getDataValue("name"),
                 type: record.getDataValue("type"),
@@ -36,7 +36,7 @@ class TemplatesDao {
     }
 
     // POST (Create) a new element
-    public async post(dto: PostTemplateDto) {
+    public async post(dto: PostRecipeDto) {
 
         this.daos.push(dto);
         
@@ -49,14 +49,14 @@ class TemplatesDao {
             updatedAt: new Date()
         }
 
-        await Templates.create(insert);
+        await Recipes.create(insert);
 
         return `${dto.name} created`;
 
     }
 
     // PATCH a single element
-    public async patch(id: number, dto: PatchTemplateDto) {
+    public async patch(id: number, dto: PatchRecipeDto) {
 
         let index = this.daos.findIndex(
             (obj: { id: number }) => obj.id === id
@@ -81,7 +81,7 @@ class TemplatesDao {
             type: dto.type,
             doc: dto.doc
         }
-        await Templates.update(update, {
+        await Recipes.update(update, {
             where: {
                 id: id
             }
@@ -92,7 +92,7 @@ class TemplatesDao {
     }
 
     // PUT a single element
-    public async put(id: number, dto: PutTemplateDto) {
+    public async put(id: number, dto: PutRecipeDto) {
         
         let index = this.daos.findIndex(
             (obj: { id: number }) => obj.id === id
@@ -105,7 +105,7 @@ class TemplatesDao {
             type: dto.type,
             doc: dto.doc
         }
-        await Templates.update(update, {
+        await Recipes.update(update, {
             where: {
                 id: id
             }
@@ -122,7 +122,7 @@ class TemplatesDao {
         this.daos.splice(index, 1);
 
         // Persistent deletion in database
-        await Templates.destroy({
+        await Recipes.destroy({
             where: {
                 id: id
             }
@@ -132,4 +132,4 @@ class TemplatesDao {
     }
 }
 
-export default new TemplatesDao();
+export default new RecipesDao();
