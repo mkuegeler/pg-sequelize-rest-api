@@ -1,43 +1,12 @@
-import express from 'express';
 import Service from '../services/templates.service';
+import { GenericController } from './generic.controller';
 
-class Controller {
+class Controller extends GenericController {
 
-    async all(req: express.Request, res: express.Response) {
-        const services = await Service.all(100, 0);
-        res.status(200).send(services);
+    constructor(s:any=Service) {
+        super(s);
     }
-
-    async get(req: express.Request, res: express.Response) {
-        const service = await Service.get(Number(req.params.id));
-        res.status(200).send(service);
-    }
-
-    async post(req: express.Request, res: express.Response) {
-        const result = await Service.post(req.body);
-        res.status(201).send({ id: result });
-    }
-
-    async patch(req: express.Request, res: express.Response) {
-        await Service.patch(Number(req.params.id), req.body)
-        res.status(204).send();
-    }
-
-    async put(req: express.Request, res: express.Response) {
-        await Service.put(Number(req.params.id), req.body)
-        res.status(204).send();
-    }
-
-    async delete(req: express.Request, res: express.Response) {
-        await Service.delete(Number(req.params.id));
-        res.status(204).send();
-    }
-
-    async render(req: express.Request, res: express.Response) {
-      let result:string = "render a template";
-        res.status(200).send(result);
-    }
-
+   
 }
 
 export default new Controller();
