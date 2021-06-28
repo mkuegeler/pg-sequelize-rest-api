@@ -16,4 +16,7 @@ export class TemplatesRoutes extends GenericRoutes {
     constructor(app: express.Application) {
         super(app, routeSetup);
     }
+    public init() {
+        this.app = this.default();
+    }
 }

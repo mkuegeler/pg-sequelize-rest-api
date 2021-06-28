@@ -32,6 +32,12 @@ class Controller {
         await Service.delete(Number(req.params.id));
         res.status(204).send();
     }
+
+    async render(req: express.Request, res: express.Response) {
+      let result:string = "render a template";
+        res.status(200).send(result);
+    }
+
 }
 
 export default new Controller();

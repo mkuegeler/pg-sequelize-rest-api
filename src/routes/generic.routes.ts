@@ -8,7 +8,7 @@ export abstract class GenericRoutes {
         this.app = app;
         this.params = params;
     }
-    public init() {
+    public default() {
         this.app
             .route(`/${this.params.route}`)
             .get(this.params.controller.all)
@@ -19,5 +19,6 @@ export abstract class GenericRoutes {
             .patch(this.params.controller.patch)
             .put(this.params.controller.put)
             .delete(this.params.controller.delete);
+        return this.app;
     }
 }

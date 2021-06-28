@@ -16,4 +16,10 @@ export class RecipesRoutes extends GenericRoutes {
     constructor(app: express.Application) {
         super(app, routeSetup);
     }
+    public init() {
+        this.app = this.default();
+        this.app
+            .route(`/${this.params.route}/:${this.params.id}/render`)
+            .get(this.params.controller.render);
+    }
 }
