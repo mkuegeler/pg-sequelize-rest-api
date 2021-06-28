@@ -1,12 +1,16 @@
 {
-  "name": "seq-06",
+  "name": "pg-sequelize-rest-api",
   "version": "1.0.0",
-  "description": "Typescript project with NodeJS + Express + Sequelize ORM",
+  "description": "Typescript project with NodeJS + Express + Sequelize ORM + postgres",
   "main": "dist/main.js",
   "scripts": {
     "build": "webpack",
     "start": "node dist/main.js",
     "all": "webpack && node dist/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkuegeler/pg-sequelize-rest-api.git"
   },
   "keywords": [
     "Sequelize",
@@ -35,5 +39,9 @@
     "webpack-cli": "^4.7.2",
     "webpack-node-externals": "^3.0.0",
     "typedoc":"^0.21.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/mkuegeler/pg-sequelize-rest-api/issues"
+  },
+  "homepage": "https://github.com/mkuegeler/pg-sequelize-rest-api#readme"
 }
