@@ -2,8 +2,8 @@ import express from 'express';
 import { Routes } from './generic.routes.interfaces';
 
 export abstract class GenericRoutes {
-    private app: express.Application;
-    private params: Routes;
+    public app: express.Application;
+    public params: Routes;
     constructor(app: express.Application, params: Routes) {
         this.app = app;
         this.params = params;

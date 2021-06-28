@@ -9,7 +9,7 @@ const routeSetup: Routes = {
     route: "recipes",
     id: "id",
     controller: Controller
-    
+
 };
 
 export class RecipesRoutes extends GenericRoutes {

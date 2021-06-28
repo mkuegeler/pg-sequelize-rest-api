@@ -32,7 +32,6 @@ class Controller {
         await Service.delete(Number(req.params.id));
         res.status(204).send();
     }
-
 }
 
 export default new Controller();
