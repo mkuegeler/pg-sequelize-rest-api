@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Types",
+        "attributes": {
+            "name": "string"
+        }
+    },
+    {
+        "name": "Templates",
+        "attributes": {
+            "name": "string",
+            "type": "string",
+            "doc": "json"
+        }
+    }
+]
