@@ -1,0 +1,23 @@
+[
+    {
+        "name": "html",
+        "doctype": true,
+        "attributes": {
+            "lang": "en"
+        },
+        "children": [
+            {
+                "name": "head"
+            },
+            {
+                "name": "body",
+                "children": [
+                    {
+                        "name": "span",
+                        "text": "<!--  Placeholder -->"
+                    }
+                ]
+            }
+        ]
+    }
+]

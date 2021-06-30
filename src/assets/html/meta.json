@@ -1,0 +1,17 @@
+[
+    {
+        "name": "meta",
+        "parent": "head",
+        "attributes": {
+            "charset": "UTF-8"
+        }
+    },
+    {
+        "name": "meta",
+        "parent": "head",
+        "attributes": {
+            "name": "viewport",
+            "content": "width=device-width, initial-scale=1.0"
+        }
+    }
+]
