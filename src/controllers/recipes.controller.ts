@@ -3,8 +3,6 @@ import RecipesService from '../services/recipes.service';
 import TemplatesService from '../services/templates.service';
 import { GenericController } from './generic.controller';
 import { Recipes } from '../app/recipes.assembler'
-//import RecipesDao from '../dao/recipes.dao'
-// import { PostRecipeDto } from "src/dto/";
 
 class Controller extends GenericController {
 
@@ -12,19 +10,23 @@ class Controller extends GenericController {
         super(s);
     }
     async render(req: express.Request, res: express.Response) {
-        let doc:any[] = [];
+        let record: any[] = [];
+        let result: any = "VOID";
         const Templates = await TemplatesService.all(100, 0);
         const recipe = await RecipesService.get(Number(req.params.id));
-        // let doc:any[] = service ? new Recipes(service).get() : ["Doc not found!"];
+
         if (recipe) {
-            recipe.doc.forEach( (element: { index: any; }) => {
-                if (Templates[Number(element.index)]) {doc.push(Templates[Number(element.index)]);}
+            recipe.doc.forEach((element: { index: any; }) => {
+                if (Templates[Number(element.index)]) {
+                    let doc = Templates[Number(element.index)].doc;
+                    record.push(doc);
+                }
             });
-            
+            result = new Recipes(record).get();
         } else {
-            doc = ["No Recipes found!"];
+            record = ["No Recipes found!"];
         }
-        res.status(200).send(doc);
+        res.status(200).send(result);
     }
 }
 
