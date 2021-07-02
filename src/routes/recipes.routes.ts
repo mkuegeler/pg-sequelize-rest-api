@@ -21,5 +21,8 @@ export class RecipesRoutes extends GenericRoutes {
         this.app
             .route(`/${this.params.route}/:${this.params.id}/render`)
             .get(this.params.controller.render);
+        this.app
+            .route(`/${this.params.route}/:${this.params.id}`)
+            .post(this.params.controller.create);
     }
 }

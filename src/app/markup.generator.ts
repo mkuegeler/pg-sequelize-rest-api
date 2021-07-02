@@ -1,15 +1,8 @@
 import { MarkupElement } from './markup';
-import { template_lib } from '../assets/index';
+import document from '../assets/html/document.json';
+import { markup_document } from '../interfaces/markup.interface';
 
-const [tpl] = template_lib[0].doc;
-
-export interface markup_document {
-    name: string;
-    attributes?: object;
-    doctype?: boolean;
-    children?: markup_document[];
-    text?: string | string[]
-}
+const [tpl] = document;
 
 export const defaultDoc: markup_document = {
     name: tpl.name,
@@ -17,7 +10,6 @@ export const defaultDoc: markup_document = {
     doctype: tpl.doctype,
     children: tpl.children
 }
-
 
 export class MarkupDocument implements markup_document {
     public name: string;
@@ -57,21 +49,16 @@ export class MarkupDocument implements markup_document {
 }
 
 export class viewDocument {
-    public id: number;
+    public p: markup_document;
     public el: string;
-    constructor(id: number = 0) {
-
-        this.id = id;
-        let tpl: any;
-        this.id >= template_lib.length || this.id < 0 ? [tpl] = template_lib[0].doc : [tpl] = template_lib[this.id].doc;
-
-        let doctype: boolean = tpl.doctype ? tpl.doctype : false;
-
+    constructor(p: markup_document = defaultDoc) {
+        this.p = p;
+        let doctype: boolean = p.doctype ? p.doctype : false;
         let params: markup_document = {
-            name: tpl.name,
-            attributes: tpl.attributes,
+            name: p.name,
+            attributes: p.attributes,
             doctype: doctype,
-            children: tpl.children
+            children: p.children
         }
 
         this.el = new createDocument(params).el;

@@ -28,6 +28,11 @@ class Controller extends GenericController {
         }
         res.status(200).send(result);
     }
+
+    async create(req: express.Request, res: express.Response) {
+        const recipe = await RecipesService.get(Number(req.params.id));
+        res.status(200).send(recipe);
+    }
 }
 
 export default new Controller();

@@ -1,0 +1,57 @@
+[
+    {
+        "name": "header",
+        "parent": "body",
+        "children": [
+            {
+                "name": "div",
+                "attributes": {
+                    "class": "jumbotron"
+                },
+                "children": [
+                    {
+                        "name": "h1",
+                        "params": "text",
+                        "attributes": {
+                            "class": "display-3"
+                        },
+                        "text": "Header Title"
+                    },
+                    {
+                        "name": "p",
+                        "attributes": {
+                            "class": "lead"
+                        },
+                        "text": "Sub Title"
+                    },
+                    {
+                        "name": "hr",
+                        "attributes": {
+                            "class": "my-2"
+                        }
+                    },
+                    {
+                        "name": "p",
+                        "attributes": {
+                            "class": "lead"
+                        },
+                        "children": [
+                            {
+                                "name": "div",
+                                "attributes": {
+                                    "id": "main"
+                                },
+                                "children": [
+                                    {
+                                        "name": "h4",
+                                        "text": "Main Title"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

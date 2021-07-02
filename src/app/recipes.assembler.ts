@@ -1,5 +1,6 @@
 // Assemble recipes
-import { createDocument, markup_document } from './markup.generator';
+import { createDocument } from './markup.generator';
+import { markup_document } from '../interfaces/markup.interface';
 
 export class Recipes {
     public values: any;
