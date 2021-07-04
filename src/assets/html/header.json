@@ -2,6 +2,7 @@
     {
         "name": "header",
         "parent": "body",
+        "params": ["text"],
         "children": [
             {
                 "name": "div",

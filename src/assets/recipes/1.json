@@ -1,0 +1,28 @@
+{
+    "id": 1,
+    "name": "html-sample-page",
+    "type": "page",
+    "doc": [
+        {
+            "index": 0,
+            "template": "document"
+        },
+        {
+            "index": 1,
+            "template": "meta"
+        },
+        {
+            "index": 2,
+            "template": "link"
+        },
+        {
+            "index": 3,
+            "template": "header",
+            "params": [{"key":"value"}, {"key":"value"}, {"key":"value"}]
+        },
+        {
+            "index": 4,
+            "template": "script"
+        }
+    ]
+}
