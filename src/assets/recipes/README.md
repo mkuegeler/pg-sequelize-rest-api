@@ -222,7 +222,7 @@ A macro in a template is just the name of the template with a dot: `html.table`.
         "attributes": {
             "class": "table table-dark table-striped"
         },
-        "params": ["name"],
+        "params": ["attributes","MACRO"],
         "children": [
             {
                 "name": "thead",
@@ -236,6 +236,64 @@ A macro in a template is just the name of the template with a dot: `html.table`.
     }
 ]
 
+```
+
+#### Recipe
+```JSON
+[
+  {
+    "id": 1,
+    "name": "html-sample-table",
+    "type": "html",
+    "doc": [
+        {
+            "index": 0,
+            "template": "table",
+            "params":[{"attributes":{}},{}]
+        }
+    ]
+}  
+]
+```
+
+#### Table object: Example
+The first element of the array contains the header (column) names of the table.
+
+```JSON
+{
+    "table": [
+        [
+            "header1",
+            "header2",
+            "header3",
+            "header4"
+        ],
+        [
+            "Value",
+            "Value",
+            "Value",
+            "Value"
+        ],
+        [
+            "Value",
+            "Value",
+            "Value",
+            "Value"
+        ],
+        [
+            "Value",
+            "Value",
+            "Value",
+            "Value"
+        ],
+        [
+            "Value",
+            "Value",
+            "Value",
+            "Value"
+        ]
+    ]
+}
 ```
 
 
