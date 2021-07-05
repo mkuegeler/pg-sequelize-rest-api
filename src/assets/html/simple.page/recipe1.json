@@ -1,0 +1,15 @@
+{
+    "name": "simple.page",
+    "type": "html",
+    "doc": [
+        {
+            "template": "html"
+        },
+        {
+            "template": "head"
+        },
+        {
+            "template": "body"
+        }
+    ]
+}

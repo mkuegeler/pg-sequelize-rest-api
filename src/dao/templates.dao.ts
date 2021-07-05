@@ -27,12 +27,14 @@ class TemplatesDao {
     }
     // GET without arguments returns all records
     public async all() {
+        this.init();
         // Ascending sort by uid
         return this.daos.sort((a, b) => (a.uid < b.uid ? -1 : 1));
     }
 
     // GET a single element by Id
     public async get(uid: string) {
+        this.init();
         return this.daos.find((template: { uid: string }) => template.uid === uid);
     }
 
@@ -90,7 +92,7 @@ class TemplatesDao {
                 uid: uid
             }
         });
-
+        this.init();
         return `${dto.uid} patched`;
         // return this.templates.find((template: { id: number }) => template.id === id);
     }
@@ -114,7 +116,7 @@ class TemplatesDao {
                 uid: uid
             }
         });
-
+        this.init();
         return `${dto.uid} updated via put`;
     }
 
@@ -131,6 +133,7 @@ class TemplatesDao {
                 uid: uid
             }
         });
+        this.init();
         return `${uid} deleted`;
         
     }

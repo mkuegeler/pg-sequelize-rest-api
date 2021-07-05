@@ -16,9 +16,12 @@ class Controller extends GenericController {
         const recipe = await RecipesService.get(req.params.uid);
 
         if (recipe) {
-            recipe.doc.forEach((element: { index: any; }) => {
-                if (Templates[Number(element.index)]) {
-                    let doc = Templates[Number(element.index)].doc;
+            recipe.doc.forEach((element: { template: any; }) => {
+
+                let template = Templates.find((template: { name: string }) => template.name === element.template);
+
+                if (template) {
+                    let doc = template.doc;
                     record.push(doc);
                 }
             });
@@ -35,10 +38,22 @@ class Controller extends GenericController {
         const Templates = await TemplatesService.all(100, 0);
         const recipe = await RecipesService.get(req.params.uid);
 
-        result = Templates.find((template: { name: string }) => template.name === 'document')
+        if (recipe) {
+            recipe.doc.forEach((element: { template: any; }) => {
 
-        
-        res.status(200).send(result.doc);
+                let template = Templates.find((template: { name: string }) => template.name === element.template);
+
+                if (template) {
+                    let doc = template.doc;
+                    record.push(doc);
+                }
+            });
+            // result = new Recipes(record).get();
+        } else {
+            record = ["No Recipes found!"];
+        }
+
+        res.status(200).send(record);
     }
 }
 

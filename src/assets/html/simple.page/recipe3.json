@@ -1,0 +1,15 @@
+{
+    "name": "html.head.body",
+    "type": "html",
+    "doc": [
+        {
+            "template": "html"
+        },
+        {
+            "template": "head"
+        },
+        {
+            "template": "body"
+        }
+    ]
+}

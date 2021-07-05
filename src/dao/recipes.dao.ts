@@ -27,17 +27,20 @@ class RecipesDao {
     }
     // GET without arguments returns all records
     public async all() {
+        this.init();
         // Ascending sort by id
         return this.daos.sort((a, b) => (a.uid < b.uid ? -1 : 1));
     }
 
     // GET a single element by Id
     public async get(uid: string) {
+        this.init();
         return this.daos.find((template: { uid: string }) => template.uid === uid);
     }
 
     // POST (Create) a new element
     public async post(dto: PostRecipeDto) {
+        
         dto.uid = nanoid();
         this.daos.push(dto);
         
@@ -61,7 +64,7 @@ class RecipesDao {
 
     // PATCH a single element
     public async patch(uid: string, dto: PatchRecipeDto) {
-
+    
         let index = this.daos.findIndex(
             (obj: { uid: string }) => obj.uid === uid
         );
@@ -91,12 +94,14 @@ class RecipesDao {
             }
         });
         
+        this.init();
         return `${dto.uid} patched`;
         // return this.templates.find((template: { id: number }) => template.id === id);
     }
 
     // PUT a single element
     public async put(uid: string, dto: PutRecipeDto) {
+        
         
         let index = this.daos.findIndex(
             (obj: { uid: string }) => obj.uid === uid
@@ -114,7 +119,7 @@ class RecipesDao {
                 uid: uid
             }
         });
-        
+        this.init();
         return `${dto.uid} updated via put`;
     }
 
@@ -131,6 +136,7 @@ class RecipesDao {
                 uid: uid
             }
         });
+        this.init();
         return `${uid} deleted`;
         
     }

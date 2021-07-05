@@ -1,0 +1,14 @@
+{
+    "name": "html",
+    "type": "html",
+    "doc": [
+      {
+        "name": "html",
+        "doctype": true,
+        "attributes": {
+            "lang": "en"
+        },
+        "children": []
+      }
+    ]
+}

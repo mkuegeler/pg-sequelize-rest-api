@@ -1,0 +1,8 @@
+{
+    "name": "html",
+    "doctype": true,
+    "attributes": {
+        "lang": "en"
+    },
+    "children": []
+}
