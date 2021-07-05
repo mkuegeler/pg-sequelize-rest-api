@@ -11,19 +11,19 @@ class Service implements CRUD {
     async all (limit: number, page: number) {
         return RecipesDao.all();
     }
-    async get (id: number) {
+    async get (id: string) {
         return RecipesDao.get(id);
     }
     async post (resource: PostRecipeDto) {
         return RecipesDao.post(resource);
     }
-    async patch (id: number, resource: PatchRecipeDto) {
+    async patch (id: string, resource: PatchRecipeDto) {
         return  RecipesDao.patch(id, resource);
     }
-    async put (id: number, resource: PutRecipeDto) {
+    async put (id: string, resource: PutRecipeDto) {
         return  RecipesDao.put(id, resource);
     }
-    async delete (id: number) {
+    async delete (id: string) {
         return RecipesDao.delete(id);
     }
 }

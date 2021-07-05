@@ -238,7 +238,7 @@ A macro in a template is just the name of the template with a dot: `html.table`.
 
 ```
 
-#### Recipe
+#### Recipe: GET/ID
 ```JSON
 [
   {
@@ -248,15 +248,14 @@ A macro in a template is just the name of the template with a dot: `html.table`.
     "doc": [
         {
             "index": 0,
-            "template": "table",
-            "params":[{"attributes":{}},{}]
+            "macro": "html.table"
         }
     ]
 }  
 ]
 ```
 
-#### Table object: Example
+#### Recipe: POST/ID
 The first element of the array contains the header (column) names of the table.
 
 ```JSON
@@ -295,5 +294,3 @@ The first element of the array contains the header (column) names of the table.
     ]
 }
 ```
-
-

@@ -19,27 +19,27 @@ export abstract class GenericController {
     }
 
     async get(req: express.Request, res: express.Response) {
-        const service = await this.Service.get(Number(req.params.id));
+        const service = await this.Service.get(req.params.uid);
         res.status(200).send(service);
     }
 
     async post(req: express.Request, res: express.Response) {
         const result = await this.Service.post(req.body);
-        res.status(201).send({ id: result });
+        res.status(201).send({ uid: result });
     }
 
     async patch(req: express.Request, res: express.Response) {
-        await this.Service.patch(Number(req.params.id), req.body)
+        await this.Service.patch(req.params.uid, req.body)
         res.status(204).send();
     }
 
     async put(req: express.Request, res: express.Response) {
-        await this.Service.put(Number(req.params.id), req.body)
+        await this.Service.put(req.params.uid, req.body)
         res.status(204).send();
     }
 
     async delete(req: express.Request, res: express.Response) {
-        await this.Service.delete(Number(req.params.id));
+        await this.Service.delete(req.params.uid);
         res.status(204).send();
     }
 }

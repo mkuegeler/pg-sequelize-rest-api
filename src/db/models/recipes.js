@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Recipes.init({
+    uid: DataTypes.STRING,
     name: DataTypes.STRING,
     type: DataTypes.STRING,
     doc: DataTypes.JSON

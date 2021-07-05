@@ -1,6 +1,6 @@
 // Data transfer objects (DTOs)
 export interface PostRecipeDto {
-    id: number,
+    uid: string,
     name: string,
     type?: string,
     doc?: any

@@ -8,6 +8,7 @@
     {
         "name": "Templates",
         "attributes": {
+            "uid": "string",
             "name": "string",
             "type": "string",
             "doc": "json"
@@ -16,7 +17,9 @@
     {
         "name": "Recipes",
         "attributes": {
+            "uid": "string",
             "name": "string",
+            "type": "string",
             "doc": "json"
         }
     }

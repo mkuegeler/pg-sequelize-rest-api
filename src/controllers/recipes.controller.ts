@@ -13,7 +13,7 @@ class Controller extends GenericController {
         let record: any[] = [];
         let result: any = "VOID";
         const Templates = await TemplatesService.all(100, 0);
-        const recipe = await RecipesService.get(Number(req.params.id));
+        const recipe = await RecipesService.get(req.params.uid);
 
         if (recipe) {
             recipe.doc.forEach((element: { index: any; }) => {
@@ -30,8 +30,15 @@ class Controller extends GenericController {
     }
 
     async create(req: express.Request, res: express.Response) {
-        const recipe = await RecipesService.get(Number(req.params.id));
-        res.status(200).send(recipe);
+        let record: any[] = [];
+        let result: any = "VOID";
+        const Templates = await TemplatesService.all(100, 0);
+        const recipe = await RecipesService.get(req.params.uid);
+
+        result = Templates.find((template: { name: string }) => template.name === 'document')
+
+        
+        res.status(200).send(result.doc);
     }
 }
 

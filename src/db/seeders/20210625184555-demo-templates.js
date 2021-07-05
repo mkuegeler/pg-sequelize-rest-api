@@ -1,11 +1,13 @@
 'use strict';
 
 const name = "Templates";
-const seeds = require(`./${name}.json`)
+const seeds = require(`./${name}.json`);
+const { nanoid } = require('nanoid');
 
 function prepare(seeds) {
 
   seeds.forEach(seed => {
+    seed["uid"] = nanoid();
     seed["createdAt"] = new Date();
     seed["updatedAt"] = new Date();
     seed["doc"] = JSON.stringify(seed["doc"]);

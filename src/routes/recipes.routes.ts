@@ -7,7 +7,7 @@ import { Routes } from './generic.routes.interfaces';
 const routeSetup: Routes = {
     name: "RecipesRoutes",
     route: "recipes",
-    id: "id",
+    id: "uid",
     controller: Controller
 
 };

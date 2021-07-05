@@ -1,4 +1,5 @@
-// template DAO
+// recipe DAO
+import { nanoid } from 'nanoid';
 import { Recipes } from "../db/models/recipes";
 import { PostRecipeDto, PutRecipeDto, PatchRecipeDto } from "src/dto/";
 
@@ -15,7 +16,7 @@ class RecipesDao {
         // Map the ORM object to the DTO
         result.forEach(record => {
             let dto: PostRecipeDto = {
-                id: Number(record.getDataValue("id")),
+                uid: record.getDataValue("uid"),
                 name: record.getDataValue("name"),
                 type: record.getDataValue("type"),
                 doc: record.getDataValue("doc")
@@ -27,21 +28,22 @@ class RecipesDao {
     // GET without arguments returns all records
     public async all() {
         // Ascending sort by id
-        return this.daos.sort((a, b) => (a.id < b.id ? -1 : 1));
+        return this.daos.sort((a, b) => (a.uid < b.uid ? -1 : 1));
     }
 
     // GET a single element by Id
-    public async get(id: number) {
-        return this.daos.find((template: { id: number }) => template.id === id);
+    public async get(uid: string) {
+        return this.daos.find((template: { uid: string }) => template.uid === uid);
     }
 
     // POST (Create) a new element
     public async post(dto: PostRecipeDto) {
-
+        dto.uid = nanoid();
         this.daos.push(dto);
         
          // Persistent insert in database
         const insert = {
+            uid: dto.uid,
             name: dto.name,
             type: dto.type,
             doc: dto.doc,
@@ -50,16 +52,18 @@ class RecipesDao {
         }
 
         await Recipes.create(insert);
+        // Update DAO cache
+        this.init();
 
-        return `${dto.name} created`;
+        return dto.uid;
 
     }
 
     // PATCH a single element
-    public async patch(id: number, dto: PatchRecipeDto) {
+    public async patch(uid: string, dto: PatchRecipeDto) {
 
         let index = this.daos.findIndex(
-            (obj: { id: number }) => obj.id === id
+            (obj: { uid: string }) => obj.uid === uid
         );
         let currentRecord = this.daos[index];
         const allowedPatchFields = [
@@ -83,19 +87,19 @@ class RecipesDao {
         }
         await Recipes.update(update, {
             where: {
-                id: id
+                uid: uid
             }
         });
-
-        return `${dto.id} patched`;
+        
+        return `${dto.uid} patched`;
         // return this.templates.find((template: { id: number }) => template.id === id);
     }
 
     // PUT a single element
-    public async put(id: number, dto: PutRecipeDto) {
+    public async put(uid: string, dto: PutRecipeDto) {
         
         let index = this.daos.findIndex(
-            (obj: { id: number }) => obj.id === id
+            (obj: { uid: string }) => obj.uid === uid
         );
         this.daos.splice(index, 1, dto);
 
@@ -107,27 +111,27 @@ class RecipesDao {
         }
         await Recipes.update(update, {
             where: {
-                id: id
+                uid: uid
             }
         });
-
-        return `${dto.id} updated via put`;
+        
+        return `${dto.uid} updated via put`;
     }
 
     // DELETE a single element
-    public async delete(id: number) {
+    public async delete(uid: string) {
         let index = this.daos.findIndex(
-            (obj: { id: number }) => obj.id === id
+            (obj: { uid: string }) => obj.uid === uid
         );
         this.daos.splice(index, 1);
 
         // Persistent deletion in database
         await Recipes.destroy({
             where: {
-                id: id
+                uid: uid
             }
         });
-        return `${id} deleted`;
+        return `${uid} deleted`;
         
     }
 }

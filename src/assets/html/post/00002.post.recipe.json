@@ -1,0 +1,10 @@
+{
+    "name": "html-table-macro",
+    "type": "html",
+    "doc": [
+        {
+            "index": 0,
+            "macro": "html.table"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "name": "html-table",
+    "type": "html",
+    "doc": [
+        {
+            "index": 0,
+            "template": "table"
+        }
+    ]
+}

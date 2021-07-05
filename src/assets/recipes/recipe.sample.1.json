@@ -1,7 +1,7 @@
 {
     "id": 1,
     "name": "html-sample-page",
-    "type": "page",
+    "type": "html",
     "doc": [
         {
             "index": 0,
@@ -22,7 +22,7 @@
         },
         {
             "index": 4,
-            "template": "script"
+            "macro": "html.table"
         }
     ]
 }

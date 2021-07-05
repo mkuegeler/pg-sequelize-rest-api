@@ -2,6 +2,7 @@
     {
         "name": "Recipes",
         "attributes": {
+            "uid": "string",
             "name": "string",
             "doc": "json"
         }

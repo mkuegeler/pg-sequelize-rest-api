@@ -1,7 +1,7 @@
 'use strict';
 
 const name = "Types";
-const seeds = require(`./${name}.json`)
+const seeds = require(`./${name}.json`);
 
 
 function prepare(seeds) {

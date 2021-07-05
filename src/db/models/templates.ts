@@ -3,6 +3,7 @@ import { Model, DataTypes } from "sequelize";
 import sequelize from ".";
 
 export class Templates extends Model {
+    public uid!: string;
     public name!: string;
     public type!: string;
     public doc: any
@@ -10,7 +11,11 @@ export class Templates extends Model {
 
 Templates.init(
     {
-
+        uid: {
+            type: new DataTypes.STRING(50),
+            allowNull: false,
+            unique: true 
+        },
         name: {
             type: new DataTypes.STRING(50),
             allowNull: false,
