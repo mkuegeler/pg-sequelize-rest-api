@@ -1,12 +1,5 @@
 {
     "name": "head",
     "type": "html",
-    "doc": [
-        {
-            "name": "head",
-            "parent": "html",
-            "attributes": {},
-            "children": []
-        }
-    ]
+    "doc": {}
 }

@@ -1,14 +1,10 @@
 {
-    "name": "html",
-    "type": "html",
-    "doc": [
-      {
-        "name": "html",
-        "doctype": true,
-        "attributes": {
-            "lang": "en"
-        },
-        "children": []
-      }
-    ]
+  "name": "html",
+  "type": "html",
+  "doc": {
+    "doctype": true,
+    "attributes": {
+      "lang": "en"
+    }
+  }
 }

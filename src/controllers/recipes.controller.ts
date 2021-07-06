@@ -39,21 +39,24 @@ class Controller extends GenericController {
         const recipe = await RecipesService.get(req.params.uid);
 
         if (recipe) {
-            recipe.doc.forEach((element: { template: any; }) => {
-
+            recipe.doc.forEach((element: any) => {
                 let template = Templates.find((template: { name: string }) => template.name === element.template);
-
                 if (template) {
                     let doc = template.doc;
+                    doc.name = element.template;
+                    doc.id = element.id;
+                    doc.parent = element.parent;
+                    if (element.attributes) { doc.attributes = element.attributes };
+                    if (element.children) { doc.children = element.children };
+                    // doc.parent = element.parent ? doc.parent : 0;
                     record.push(doc);
                 }
             });
-            // result = new Recipes(record).get();
+            result = new Recipes(record).get();
         } else {
             record = ["No Recipes found!"];
         }
-
-        res.status(200).send(record);
+        res.status(200).send(result);
     }
 }
 

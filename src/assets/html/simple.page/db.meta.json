@@ -1,0 +1,9 @@
+{
+    "name": "meta",
+    "type": "html",
+    "doc": {
+        "attributes": {
+            "charset": "UTF-8"
+        }
+    }
+}

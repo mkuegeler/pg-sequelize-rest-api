@@ -1,17 +1,5 @@
 {
     "name": "body",
     "type": "html",
-    "doc": [
-        {
-            "name": "body",
-            "parent": "html",
-            "attributes": {},
-            "children": [
-                {
-                    "name": "span",
-                    "text": "<!--  Placeholder -->"
-                }
-            ]
-        }
-    ]
+    "doc": {}
 }
