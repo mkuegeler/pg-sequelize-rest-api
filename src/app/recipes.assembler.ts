@@ -12,7 +12,7 @@ export class Recipes {
     }
     get() {
 
-        // return this.values;
+        // console.log(this.values);
 
         // let tpl: any = {};
         // // tpl = this.values[0];
@@ -25,8 +25,8 @@ export class Recipes {
         //         }
         //     });
         // });
-        let idChecker: string = "";
-        let idHistory: string[] = [];
+        // let Checker: any = "";
+        // let History: any[] = [];
 
         let root: any = { "children": [] };
         // let root: any = [];
@@ -38,19 +38,25 @@ export class Recipes {
         let sorted = this.values.sort((a: { parent: number; }, b: { parent: number; }) => (a.parent < b.parent ? -1 : 1));
         sorted.forEach((fragment: any) => {
             //     // root.children.push(fragment);
-            console.log(fragment.id);
+            // console.log(fragment.id);
+            // console.log(fragment);
             if (fragment.id === fragment.parent) { root = fragment };
 
             if (fragment.parent != 0 && fragment.id != 0) {
                 let parent = sorted.find((template: { id: number }) => template.id === fragment.parent);
 
+                // let hh = History.find((x: { template: any }) => x.template === fragment.template);
+                
+                // if (![Checker, History.find(x => x === fragment.template)].includes(fragment.template)) {
+                
+                // // parent.children = []; 
+                // console.log(fragment);
 
-                if (![idChecker, idHistory.find(x => x === fragment.id)].includes(fragment.id)) {
-                parent.children = []; 
-                }
+                // }
 
-                   idChecker = fragment.id;
-                   idHistory.push(idChecker);
+                // Checker = fragment.template;
+                //    History.push(Checker);
+                   
                
                 if (parent) {
                     parent.children ? parent.children.push(fragment) : parent.children = [fragment];
@@ -126,7 +132,7 @@ export class Recipes {
             //     //     parent.children.push(frg);
             //     // });
         });
-
+        
         // // // if (parent) { root.children.push(parent); }
         // // // const [root] = parent;
         // // return root;

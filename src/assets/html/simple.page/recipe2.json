@@ -1,9 +1,37 @@
 {
-    "name": "only.html",
+    "name": "html.test.0002",
     "type": "html",
     "doc": [
         {
-            "template": "html"
+            "template": "default.html",
+            "id": 0,
+            "parent": 0
+        },
+        {
+            "template": "default.head",
+            "id": 1,
+            "parent": 0
+        },
+        {
+            "template": "default.meta",
+            "id": 2,
+            "parent": 1
+        },
+        {
+            "template": "default.body",
+            "id": 3,
+            "parent": 0
+        },
+        {
+            "template": "default.h4",
+            "id": 4,
+            "parent": 3
+        },
+        {
+            "template": "default.h4",
+            "id": 5,
+            "parent": 3,
+            "text": "Sub title"
         }
     ]
 }

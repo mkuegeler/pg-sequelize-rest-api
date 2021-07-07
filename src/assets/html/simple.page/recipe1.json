@@ -1,15 +1,31 @@
 {
-    "name": "simple.page",
+    "name": "html.test.0001",
     "type": "html",
     "doc": [
         {
-            "template": "html"
+            "template": "default.html",
+            "id": 0,
+            "parent": 0
         },
         {
-            "template": "head"
+            "template": "default.head",
+            "id": 1,
+            "parent": 0
         },
         {
-            "template": "body"
+            "template": "default.meta",
+            "id": 2,
+            "parent": 1
+        },
+        {
+            "template": "default.body",
+            "id": 3,
+            "parent": 0
+        },
+        {
+            "template": "default.h4",
+            "id": 4,
+            "parent": 3
         }
     ]
 }

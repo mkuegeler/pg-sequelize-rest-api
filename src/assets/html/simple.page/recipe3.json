@@ -1,31 +1,31 @@
 {
-    "name": "html.test.0001",
+    "name": "html.test.0003",
     "type": "html",
     "doc": [
         {
-            "template": "html",
+            "template": "default.html",
             "id": 0,
             "parent": 0
         },
         {
-            "template": "head",
+            "template": "default.head",
             "id": 1,
             "parent": 0
         },
         {
-            "template": "meta",
+            "template": "default.meta",
             "id": 2,
             "parent": 1
         },
         {
-            "template": "body",
+            "template": "default.body",
             "id": 3,
             "parent": 0
         },
         {
-            "template": "h4",
+            "template": "default.h4",
             "id": 4,
-            "parent": 2
+            "parent": 3
         }
     ]
 }

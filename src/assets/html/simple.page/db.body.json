@@ -1,5 +1,7 @@
 {
-    "name": "body",
+    "name": "default.body",
     "type": "html",
-    "doc": {}
+    "doc": {
+        "name": "body"
+    }
 }

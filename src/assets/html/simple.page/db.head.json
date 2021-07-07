@@ -1,5 +1,7 @@
 {
-    "name": "head",
+    "name": "default.head",
     "type": "html",
-    "doc": {}
+    "doc": {
+        "name": "head"
+    }
 }

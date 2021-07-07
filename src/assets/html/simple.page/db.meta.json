@@ -1,7 +1,8 @@
 {
-    "name": "meta",
+    "name": "default.meta",
     "type": "html",
     "doc": {
+        "name": "meta",
         "attributes": {
             "charset": "UTF-8"
         }
