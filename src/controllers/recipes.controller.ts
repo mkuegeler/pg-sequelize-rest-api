@@ -42,8 +42,6 @@ class Controller extends GenericController {
         let Second: any = "";
         let History: any[] = [];
 
-        let count: number = 0;
-
         if (recipe) {
             recipe.doc.forEach((element: any) => {
 
@@ -56,15 +54,25 @@ class Controller extends GenericController {
 
                     let doc = template.doc;
 
-                    // let IsName = History.find((x: any) => x === First);
-
                     if (History.find((x: any) => x === First) === Second) {
-                        doc = {
-                            "name": template.doc.name,
-                            "text": element.text,
-                            "id": element.id,
-                            "parent": element.parent
-                        };
+
+                        if (element.attributes) {
+                            doc = {
+                                "name": template.doc.name,
+                                "text": element.text,
+                                "id": element.id,
+                                "parent": element.parent,
+                                "attributes": element.attributes
+                            };
+                        } else {
+                            doc = {
+                                "name": template.doc.name,
+                                "text": element.text,
+                                "id": element.id,
+                                "parent": element.parent
+                            };
+                        }
+
                     } else {
 
                         doc.id = element.id;
@@ -75,45 +83,12 @@ class Controller extends GenericController {
 
 
                     }
-
-
-                    // if (element.text==='Sub title 1') {
-                    //     template.doc.text = element.text;
-                    //     History.push(template.doc);
-                    //     // count++;
-                    // }
-                    // if (element.text==='Sub title 2') {
-                    //     // template.doc.text = element.text;
-                    //     let doc = {"name":  template.doc.name,  "text": element.text};
-                    //     History.push(doc);
-                    //     // count++;
-                    // }
-
-                    // record[count] = doc;
-
-
-                    // console.log(doc);
-
-
-                    // if (doc.name==='h4' && count===1) {
-                    //     History.push(doc);
-                    //     count++;
-                    // }
-
-                    // let IsName = History.find((x: any) => x === First);
-
-                    // if (IsName===Second) {
-                    //     console.log(IsName); 
-                    // }
                     Second = template.doc.name;
-
                     record.push(doc);
-                    // count++;
                 }
             });
 
             result = new Recipes(record).get();
-            // console.log(record);
         } else {
             record = ["No Recipes found!"];
         }
