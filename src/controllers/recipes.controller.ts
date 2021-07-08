@@ -37,53 +37,21 @@ class Controller extends GenericController {
         let result: any = "VOID";
         const Templates = await TemplatesService.all(100, 0);
         const recipe = await RecipesService.get(req.params.uid);
-
-        let First: any = "";
-        let Second: any = "";
-        let History: any[] = [];
-
+       
         if (recipe) {
             recipe.doc.forEach((element: any) => {
 
                 let template = Templates.find((template: { name: string }) => template.name === element.template);
                 if (template) {
 
-
-                    First = template.doc.name;
-                    History.push(First);
-
-                    let doc = template.doc;
-
-                    if (History.find((x: any) => x === First) === Second) {
-
-                        if (element.attributes) {
-                            doc = {
-                                "name": template.doc.name,
-                                "text": element.text,
-                                "id": element.id,
-                                "parent": element.parent,
-                                "attributes": element.attributes
-                            };
-                        } else {
-                            doc = {
-                                "name": template.doc.name,
-                                "text": element.text,
-                                "id": element.id,
-                                "parent": element.parent
-                            };
-                        }
-
-                    } else {
-
-                        doc.id = element.id;
-                        doc.parent = element.parent;
-                        if (element.attributes) { doc.attributes = element.attributes };
-                        if (element.children) { doc.children = element.children };
-                        if (element.text) { doc.text = element.text };
-
-
-                    }
-                    Second = template.doc.name;
+                    let doc = {
+                        "name": template.doc.name,
+                        ...(element.text && { "text": element.text }),
+                        "id": element.id,
+                        "parent": element.parent,
+                        ...(element.attributes && { "attributes": element.attributes }),
+                        ...(!element.attributes && { "attributes": template.doc.attributes })
+                    };
                     record.push(doc);
                 }
             });
