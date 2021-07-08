@@ -47,6 +47,7 @@ class Controller extends GenericController {
                     let doc = {
                         "name": template.doc.name,
                         ...(element.text && { "text": element.text }),
+                        ...(!element.text && { "text": template.doc.text }),
                         "id": element.id,
                         "parent": element.parent,
                         ...(element.attributes && { "attributes": element.attributes }),
