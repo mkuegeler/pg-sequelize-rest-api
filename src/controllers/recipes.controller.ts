@@ -9,30 +9,18 @@ class Controller extends GenericController {
     constructor(s: any = RecipesService) {
         super(s);
     }
-    async render(req: express.Request, res: express.Response) {
-        let record: any[] = [];
-        let result: any = "VOID";
-        const Templates = await TemplatesService.all(100, 0);
-        const recipe = await RecipesService.get(req.params.uid);
+    async create(req: express.Request, res: express.Response) {
+        // let result: any = "VOID";
 
-        if (recipe) {
-            recipe.doc.forEach((element: { template: any; }) => {
+        // let headers: number= req.body[0];
 
-                let template = Templates.find((template: { name: string }) => template.name === element.template);
-
-                if (template) {
-                    let doc = template.doc;
-                    record.push(doc);
-                }
-            });
-            result = new Recipes(record).get();
-        } else {
-            record = ["No Recipes found!"];
-        }
-        res.status(200).send(result);
+        // let input = req.body;
+        // let validate:boolean = Array.isArray(req.body);
+        // res.sendStatus(201).send(req.body.header);
+        res.status(201).send(req.body.header);
     }
 
-    async create(req: express.Request, res: express.Response) {
+    async preview(req: express.Request, res: express.Response) {
         let record: any[] = [];
         let result: any = "VOID";
         const Templates = await TemplatesService.all(100, 0);

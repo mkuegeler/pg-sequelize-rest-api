@@ -19,8 +19,8 @@ export class RecipesRoutes extends GenericRoutes {
     public init() {
         this.app = this.default();
         this.app
-            .route(`/${this.params.route}/:${this.params.id}/render`)
-            .get(this.params.controller.render);
+            .route(`/${this.params.route}/:${this.params.id}/preview`)
+            .get(this.params.controller.preview);
         this.app
             .route(`/${this.params.route}/:${this.params.id}`)
             .post(this.params.controller.create);

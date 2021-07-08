@@ -1,9 +1,0 @@
-{
-    "name": "html-table",
-    "type": "html",
-    "doc": [
-        {
-            "template": "table"
-        }
-    ]
-}

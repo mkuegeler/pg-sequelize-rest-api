@@ -1,9 +1,0 @@
-{
-    "name": "html-table-macro",
-    "type": "html",
-    "doc": [
-        { 
-            "macro": "html.table"
-        }
-    ]
-}

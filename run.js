@@ -3,6 +3,7 @@ const { exec } = require("child_process");
 const path = require('path');
 const fs = require('fs');
 const setup = require("./setup.json");
+let csvToJson = require('convert-csv-to-json');
 
 
 // Get arguments from command line
@@ -42,6 +43,12 @@ switch (initArgs[0]) {
         break;
     case 'cleanup':  // Reset all migrations
         cleanup();
+        break;
+    case 'csv2json':
+        if (initArgs[1]) {
+            csv2json(`${setup.db_path}/export/${initArgs[1]}`);
+        }
+        else { console.log("No csv!") }
         break;
     default:
         help();
@@ -140,4 +147,10 @@ function execute(command) {
         }
         console.log(`stdout: ${stdout}`);
     });
+}
+
+function csv2json(file) {
+    csvToJson.generateJsonFileFromCsv(`${file}.csv`,  `${file}.json`);
+    // return csvToJson.parseSubArray('*',',').getJsonFromCsv(`${file}.csv`);
+
 }
