@@ -2,7 +2,8 @@ import express from 'express';
 import RecipesService from '../services/recipes.service';
 import TemplatesService from '../services/templates.service';
 import { GenericController } from './generic.controller';
-import { Recipes } from '../app/recipes.assembler'
+import { Recipes } from '../app/recipes.assembler';
+import  Table from '../app/table.assembler';
 
 class Controller extends GenericController {
 
@@ -10,6 +11,9 @@ class Controller extends GenericController {
         super(s);
     }
     async create(req: express.Request, res: express.Response) {
+
+        const result =  await Table.post(req.body,req.params.uid);
+        res.status(201).send(result);
         // let result: any = "VOID";
 
         // let headers: number= req.body[0];
@@ -17,7 +21,7 @@ class Controller extends GenericController {
         // let input = req.body;
         // let validate:boolean = Array.isArray(req.body);
         // res.sendStatus(201).send(req.body.header);
-        res.status(201).send(req.body.header);
+        // res.status(201).send(req.body);
     }
 
     async preview(req: express.Request, res: express.Response) {
