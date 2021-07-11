@@ -1,7 +1,7 @@
 import { table } from '../interfaces/table.interface';
 import { recipe } from '../interfaces/recipe.interface';
 import RecipesService from '../services/recipes.service';
-// import TemplatesService from '../services/templates.service';
+import TemplatesService from '../services/templates.service';
 
 export class Table {
     async post(resource: table, id: string) {
@@ -10,8 +10,14 @@ export class Table {
         let tableRecipe: recipe[] = [];
         let count: number = 0;
 
-        // const Templates = await TemplatesService.all(100, 0);
+        const Templates = await TemplatesService.all(100, 0);
         const selectedRecipe = await RecipesService.get(id);
+        
+        let table = Templates.find((template: { name: string }) => template.name === "default.dark.table");
+        let thead = Templates.find((template: { name: string }) => template.name === "default.thead");
+        let tbody = Templates.find((template: { name: string }) => template.name === "default.tbody");
+        let tr = Templates.find((template: { name: string }) => template.name === "default.tr");
+        let td = Templates.find((template: { name: string }) => template.name === "default.td");
 
         if (selectedRecipe) {
             count = selectedRecipe.doc.length;

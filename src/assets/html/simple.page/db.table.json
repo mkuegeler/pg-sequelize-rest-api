@@ -1,0 +1,10 @@
+{
+    "name": "default.dark.table",
+    "type": "html",
+    "doc": {
+        "name": "table",
+        "attributes": {
+            "class": "table table-dark"
+        }
+    }
+}
