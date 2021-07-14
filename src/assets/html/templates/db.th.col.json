@@ -1,0 +1,9 @@
+{
+    "name": "table.th.col.default",
+    "type": "html",
+    "doc": {
+        "name": "th",
+        "attributes" : {"scope":"col"}
+    }
+}
+

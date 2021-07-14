@@ -14,14 +14,7 @@ class Controller extends GenericController {
 
         const result =  await Table.post(req.body,req.params.uid);
         res.status(201).send(result);
-        // let result: any = "VOID";
-
-        // let headers: number= req.body[0];
-
-        // let input = req.body;
-        // let validate:boolean = Array.isArray(req.body);
-        // res.sendStatus(201).send(req.body.header);
-        // res.status(201).send(req.body);
+        
     }
 
     async preview(req: express.Request, res: express.Response) {
@@ -58,4 +51,3 @@ class Controller extends GenericController {
 }
 
 export default new Controller();
-

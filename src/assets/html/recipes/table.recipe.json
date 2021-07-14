@@ -1,0 +1,114 @@
+{ 
+    "name": "html.test.0006",
+    "type": "html",
+    "doc": [
+        {
+            "template": "default.html",
+            "id": 0,
+            "parent": 0
+        },
+        {
+            "template": "default.head",
+            "id": 1,
+            "parent": 0
+        },
+        {
+            "template": "default.meta",
+            "id": 2,
+            "parent": 1
+        },
+        {
+            "template": "default.meta",
+            "id": 3,
+            "parent": 1,
+            "attributes": {
+                "name": "viewport",
+                "content": "width=device-width, initial-scale=1.0"
+            }
+        },
+        {
+            "template": "default.body",
+            "id": 4,
+            "parent": 0
+        },
+        {
+            "template": "default.link",
+            "id": 5,
+            "parent": 1
+        },
+        {
+            "template": "jquery.script",
+            "id": 6,
+            "parent": 4
+        },
+        {
+            "template": "pooper.script",
+            "id": 7,
+            "parent": 4
+        },
+        {
+            "template": "bootstrap.script",
+            "id": 8,
+            "parent": 4
+        },
+        {
+            "template": "jumbotron.div",
+            "id": 9,
+            "parent": 4
+        },
+        {
+            "template": "display-3.h1",
+            "id": 10,
+            "parent": 9
+        },
+        {
+            "template": "brown-background.style",
+            "id": 11,
+            "parent": 1
+        },
+        {
+            "template": "default.dark.table",
+            "id": 12,
+            "parent": 9
+        },
+        {
+            "template": "default.thead",
+            "id": 13,
+            "parent": 12
+        },
+        {
+            "template": "default.tr",
+            "id": 14,
+            "parent": 13
+            
+        },
+        {
+            "template": "table.th.col.default",
+            "id": 15,
+            "parent": 14,
+            "text": "placeholder"
+        },
+        {
+            "template": "default.tbody",
+            "id": 16,
+            "parent": 12
+        },
+        {
+            "template": "default.tr",
+            "id": 17,
+            "parent": 16
+        },
+        {
+            "template": "table.th.row.default",
+            "id": 18,
+            "parent": 17,
+            "text": "1"
+        },
+        {
+            "template": "default.td",
+            "id": 19,
+            "parent": 17,
+            "text": "Item 1"
+        }
+    ]
+}
