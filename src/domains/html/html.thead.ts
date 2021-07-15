@@ -1,3 +1,3 @@
 export interface htmlThead {
-    thead: string
+    name: string
 }
