@@ -1,5 +1,5 @@
 import { MarkupElement } from './markup';
-import { markup_document } from '../interfaces/markup.interface';
+import { markup_document } from './markup.interface';
 
 export class MarkupDocument implements markup_document {
     public name: string;

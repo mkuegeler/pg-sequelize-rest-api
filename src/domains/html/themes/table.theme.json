@@ -1,0 +1,23 @@
+{
+    "attributes": {
+        "class": "table"
+    },
+    "thead": {
+        "tr": {
+            "th": {
+                "attributes": {
+                    "scope": "col"
+                }
+            }
+        }
+    },
+    "tbody": {
+        "tr": {
+            "th": {
+                "attributes": {
+                    "scope": "row"
+                }
+            }
+        }
+    }
+}
