@@ -4,6 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const setup = require("./setup.json");
 let csvToJson = require('convert-csv-to-json');
+const { raw } = require("express");
 
 
 // Get arguments from command line
@@ -149,8 +150,50 @@ function execute(command) {
     });
 }
 
-function csv2json(file) {
-    csvToJson.generateJsonFileFromCsv(`${file}.csv`,  `${file}.json`);
-    // return csvToJson.parseSubArray('*',',').getJsonFromCsv(`${file}.csv`);
+// Joins two items in an array into one single json string
+function checkforJsoninCsv(line) {
+    let arr = Array.from(line.split(','));
 
+    let attributes = arr.filter(el => el.charAt(0) === '{' || el.charAt(el.length - 1) === '}').join(',');
+    let children = arr.filter(el => el.charAt(0) === '[' || el.charAt(el.length - 1) === ']').join(',');
+
+    arr = arr.filter(item => item !== arr.filter(el => el.charAt(0) === '{').join(''));
+    arr = arr.filter(item => item !== arr.filter(el => el.charAt(el.length - 1) === '}').join(''));
+
+    arr = arr.filter(item => item !== arr.filter(el => el.charAt(0) === '[').join(''));
+    arr = arr.filter(item => item !== arr.filter(el => el.charAt(el.length - 1) === ']').join(''));
+
+    return [...arr, ...[attributes, children]];
+}
+
+// converts a csv file into a json file
+function csv2json(file) {
+
+    let rawJson = csvToJson.getJsonFromCsv(`${file}.csv`);
+    let convertedJson = [];
+
+    rawJson.forEach(json => {
+        Object.entries(json).forEach(([key, value]) => {
+            let left = Array.from(key.split(','));
+
+            let right = checkforJsoninCsv(value);
+
+            let obj = new Object();
+
+            for (let i = 0; i < left.length; i++) {
+                let checkedValue = (right[i].charAt(0) === '{' || right[i].charAt(0) === '[') ? JSON.parse(right[i]) : right[i];
+                obj[left[i]] = checkedValue;
+            }
+            convertedJson.push(obj);
+        });
+    });
+
+    fs.writeFile(`${file}.json`, JSON.stringify(convertedJson), err => {
+        if (err) {
+            console.error(err);
+            return
+        } else {
+            console.log(`File '${file}.json' written sucessfully`);
+        }
+    })
 }
