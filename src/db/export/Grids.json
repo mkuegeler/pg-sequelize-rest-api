@@ -1,1 +1,62 @@
-[{"category":"svg","type":"css","name":"rect","id":"canvas","attributes":{"stroke-width":"1","fill":"none"},"children":["001","002"]},{"category":"svg","type":"css","name":"rect","id":"canvas","attributes":{"stroke-width":"2","fill":"#ff0000"},"children":["001","002"]},{"category":"svg","type":"css","name":"rect","id":"canvas","attributes":{},"children":[]},{"category":"svg","type":"css","name":"rect","id":"canvas","attributes":{},"children":[]},{"category":"svg","type":"css","name":"rect","id":"canvas","attributes":{},"children":[]},{"category":"svg","type":"css","name":"rect","id":"canvas","attributes":{},"children":[]}]
+[
+    {
+        "category": "svg",
+        "type": "css",
+        "name": "rect",
+        "id": "canvas",
+        "attributes": {
+            "stroke-width": "1",
+            "fill": "none"
+        },
+        "children": [
+            "001",
+            "002"
+        ]
+    },
+    {
+        "category": "svg",
+        "type": "css",
+        "name": "rect",
+        "id": "canvas",
+        "attributes": {
+            "stroke-width": "2",
+            "fill": "#ff0000"
+        },
+        "children": [
+            "001",
+            "002"
+        ]
+    },
+    {
+        "category": "svg",
+        "type": "css",
+        "name": "rect",
+        "id": "canvas",
+        "attributes": {},
+        "children": []
+    },
+    {
+        "category": "svg",
+        "type": "css",
+        "name": "rect",
+        "id": "canvas",
+        "attributes": {},
+        "children": []
+    },
+    {
+        "category": "svg",
+        "type": "css",
+        "name": "rect",
+        "id": "canvas",
+        "attributes": {},
+        "children": []
+    },
+    {
+        "category": "svg",
+        "type": "css",
+        "name": "rect",
+        "id": "canvas",
+        "attributes": {},
+        "children": []
+    }
+]
