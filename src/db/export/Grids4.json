@@ -1,0 +1,72 @@
+[
+    {
+        "category": "svg",
+        "type": "defs",
+        "name": "symbol",
+        "id": "node",
+        "attributes": {
+            "width": 1,
+            "height": 1,
+            "viewBox": "0 0 1 1"
+        },
+        "children": [
+            {
+                "name": "circle",
+                "id": "nodeCenter",
+                "attributes": {
+                    "cx": 0.5,
+                    "cy": 0.5,
+                    "r": 0.5,
+                    "stroke": "red",
+                    "stroke-width": 0.01,
+                    "fill": "none"
+                }
+            }
+        ]
+    },
+    {
+        "category": "svg",
+        "type": "recipes",
+        "name": "svg",
+        "id": "recipe1",
+        "attributes": {
+            "xmlns": "http://www.w3.org/2000/svg",
+            "xmlns:xlink": "http://www.w3.org/1999/xlink",
+            "viewBox": "001282721",
+            "height": "100%",
+            "width": "100%",
+            "style": "background-color:#cccccc",
+            "preserveAspectRatio": "xMidYMidmeet"
+        },
+        "children": [
+            {
+                "name": "style",
+                "id": "css1"
+            },
+            {
+                "name": "style",
+                "id": "css2"
+            },
+            {
+                "name": "style",
+                "id": "canvas"
+            },
+            {
+                "name": "style",
+                "id": "grid"
+            },
+            {
+                "name": "style",
+                "id": "panel"
+            },
+            {
+                "name": "defs",
+                "id": "node"
+            },
+            {
+                "name": "canvas",
+                "id": "SimpleCanvas"
+            }
+        ]
+    }
+]

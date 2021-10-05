@@ -1,0 +1,2 @@
+category,type,name,id,attributes,children
+svg,defs,symbol,node,"{""width"":1,""height"":1,""viewBox"":""0 0 1 1""}","[{""name"":""circle"",""id"":""nodeCenter"",""attributes"":{""cx"":0.5,""cy"":0.5,""r"":0.5,""stroke"":""red"",""stroke-width"":0.01,""fill"":""none""}}]"
