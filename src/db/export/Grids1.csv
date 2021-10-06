@@ -1,7 +1,0 @@
-category,type,name,id,attributes,children
-svg,css,rect,canvas,{"stroke-width": "1","fill": "none"},["001","002"]
-svg,css,rect,canvas,{"stroke-width": "2","fill": "#ff0000"},["001","002"]
-svg,css,rect,canvas,{},[]
-svg,css,rect,canvas,{},[]
-svg,css,rect,canvas,{},[]
-svg,css,rect,canvas,{},[]

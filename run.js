@@ -153,26 +153,37 @@ function getElementIndexbyString(s, e) {
     return { start: ((element) => element.charAt(0) === s), end: ((element) => element.charAt(element.length - 1) === e) };
 }
 
+// Build valid json from string (used in checkforJsoninCsv)
 function buildJsonRow(arr, s, e) {
 
     let row = new Array();
     let selection = getElementIndexbyString(s, e);
 
-    row.push(arr[arr.findIndex(selection.start)]);
-    let index = 0;
-    arr.forEach(element => {
-        if (index > arr.findIndex(selection.start) && index < arr.findIndex(selection.end)) {
-            row.push(element);
-        }
-        index++;
-    });
-    row.push(arr[arr.findIndex(selection.end)]);
+    let start = arr[arr.findIndex(selection.start)];
+    let end = arr[arr.findIndex(selection.end)];
 
-    return row.join(',');
+    row.push(start);
+
+    if (start != end) {
+        let index = 0;
+        arr.forEach(element => {
+            if (index > arr.findIndex(selection.start) && index < arr.findIndex(selection.end)) {
+                row.push(element);
+            }
+            index++;
+        });
+        row.push(end);
+        row = row.join(',');
+    }
+    else {
+        row = (row.length <= 1 && row[0] == null) ? `${s}${e}` : row.join('');
+    }
+
+    return row;
 
 }
 
-// Multiple string replacements
+// Multiple string replacements (used in checkforJsoninCsv)
 function replaceMultipleStrings(element, tpl) {
     let el = "";
     let index = 0;
@@ -181,26 +192,24 @@ function replaceMultipleStrings(element, tpl) {
         index++;
     })
 
-    // let el = element.replace(/""/g, '"');
-    // el = el.replace(/"\[/g, '[');
-    // el = el.replace(/}"/g, '}');
-    // el = el.replace(/"{/g, '{');
-    // el = el.replace(/"\]/g, ']');
-    // el = el.replace(/\]"/g, ']');
-
     return el;
 }
 
-// Joins two items in an array into one single json string
+// Joins two items in an array into one single json string (used in csv2json)
 function checkforJsoninCsv(line) {
 
-    let arr = Array.from(line.split(','));
+    let rawArr = Array.from(line.split(','));
+    let arr = new Array();
+    rawArr.forEach(element => {
+        let el = element == '' ? '""' : element;
+        arr.push(el);
+    });
+
     let tpl = [
         { s: '""', r: '"' },
         { s: '"\\[', r: '[' },
         { s: '}"', r: '}' },
         { s: '"{', r: '{' },
-        { s: '"\\]', r: ']' },
         { s: '\\]"', r: ']' }
     ];
     let convertedLineArr = [];
@@ -210,15 +219,16 @@ function checkforJsoninCsv(line) {
         convertedLineArr.push(replaceMultipleStrings(element, tpl));
     });
 
-    return [...arr, buildJsonRow(convertedLineArr, '{', '}'), buildJsonRow(convertedLineArr, '[', ']')];
-
+    return [...arr,
+    buildJsonRow(convertedLineArr, '{', '}').length === 0 ? "{}" : buildJsonRow(convertedLineArr, '{', '}'),
+    buildJsonRow(convertedLineArr, '[', ']').length === 0 ? "[]" : buildJsonRow(convertedLineArr, '[', ']')
+    ];
 }
 
 // converts a csv file into a json file
 function csv2json(file) {
 
     let rawJson = csvToJson.getJsonFromCsv(`${file}.csv`);
-
     let convertedJson = new Array();
 
     rawJson.forEach(json => {
