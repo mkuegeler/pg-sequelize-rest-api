@@ -5,6 +5,7 @@
   "main": "dist/main.js",
   "scripts": {
     "build": "webpack",
+    "import":"node run.js csv2json",
     "start": "node dist/main.js",
     "all": "webpack && node dist/main.js"
   },

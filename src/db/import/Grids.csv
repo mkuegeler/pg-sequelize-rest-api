@@ -1,6 +1,13 @@
-category,type,name,id,attributes,children
-svg,css,rect,canvas
-svg,css,rect,canvas,,"[""b""]"
-svg,css,rect,canvas,"",""
-svg,css,rect,canvas,"{""width"":1,""height"":1,""viewBox"":""0 0 1 1""}"
-svg,css,rect,canvas,"{""width"":2,""height"":2,""viewBox"":""0 0 1 1""}",""
+namespace,type,name,id,attributes,children
+svg,defs,symbol,node,"{""width"":1,""height"":1,""viewBox"":""0 0 1 1""}","[{""name"":""circle"",""id"":""nodeCenter"",""attributes"":{""cx"":0.5,""cy"":0.5,""r"":0.5,""stroke"":""red"",""stroke-width"":0.01,""fill"":""none""}}]"
+svg,recipes,svg,recipe1,"{""xmlns"":""http://www.w3.org/2000/svg"",""xmlns:xlink"":""http://www.w3.org/1999/xlink"",""viewBox"":""0 0 1282 721"",""height"":""100%"",""width"":""100%"",""style"":""background-color:#cccccc"",""preserveAspectRatio"":""xMidYMidmeet""}","[{""name"":""style"",""id"":""css1""},{""name"":""style"",""id"":""css2""},{""name"":""style"",""id"":""canvas""},{""name"":""style"",""id"":""grid""},{""name"":""style"",""id"":""panel""},{""name"":""defs"",""id"":""node""},{""name"":""canvas"",""id"":""SimpleCanvas""}]"
+svg,css,rect,canvas,"{""stroke-width"":1,""stroke"":""#000000"",""fill"":""none""}",
+svg,css,circle,canvas,"{""stroke-width"":1,""stroke"":""#ff0000"",""fill"":""none""}",
+svg,css,line,canvas,"{""stroke-width"":1,""stroke"":""#0000ff""}",
+svg,css,g,canvas,"{""visibility"":""visible""}",
+svg,css,line,grid,"{""stroke-width"":1,""stroke"":""#ff00ff""}",
+svg,css,g,grid,"{""visibility"":""visible""}",
+svg,css,rect,panel,"{""stroke-width"":1,""stroke"":""#ff0000"",""fill"":""#00ff00""}",
+svg,css,g,layerOn,"{""visibility"":""visible""}",
+svg,css,g,layerOff,"{""visibility"":""visible""}",
+svg,css,text,panel,"{""stroke-width"":1,""stroke"":""#ffcc99"",""fill"":""none""}",
