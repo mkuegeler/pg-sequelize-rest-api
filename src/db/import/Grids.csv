@@ -1,0 +1,6 @@
+category,type,name,id,attributes,children
+svg,css,rect,canvas
+svg,css,rect,canvas,,"[""b""]"
+svg,css,rect,canvas,"",""
+svg,css,rect,canvas,"{""width"":1,""height"":1,""viewBox"":""0 0 1 1""}"
+svg,css,rect,canvas,"{""width"":2,""height"":2,""viewBox"":""0 0 1 1""}",""

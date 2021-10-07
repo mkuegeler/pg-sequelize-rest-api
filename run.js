@@ -44,10 +44,20 @@ switch (initArgs[0]) {
         cleanup();
         break;
     case 'csv2json':
-        if (initArgs[1]) {
-            csv2json(`${setup.db_path}/export/${initArgs[1]}`);
-        }
-        else { console.log("No csv!") }
+        const directoryPath = path.join(__dirname, `${setup.db_path}/${setup.import}`);
+
+        fs.readdir(directoryPath, function (err, files) {
+            //handling error
+            if (err) {
+                return console.log('Unable to scan directory: ' + err);
+            }
+            let csvFiles = files.filter(el => path.extname(el) === '.csv');
+            // process all csv files using forEach
+            csvFiles.forEach(function (file) {
+                // Do whatever you want to do with the file
+                csv2json(file.replace(/\.[^/.]+$/, ""));
+            });
+        });
         break;
     default:
         help();
@@ -228,7 +238,7 @@ function checkforJsoninCsv(line) {
 // converts a csv file into a json file
 function csv2json(file) {
 
-    let rawJson = csvToJson.getJsonFromCsv(`${file}.csv`);
+    let rawJson = csvToJson.getJsonFromCsv(`${setup.db_path}/${setup.import}/${file}.csv`);
     let convertedJson = new Array();
 
     rawJson.forEach(json => {
@@ -249,7 +259,7 @@ function csv2json(file) {
         });
     });
 
-    fs.writeFile(`${file}.json`, JSON.stringify(convertedJson), err => {
+    fs.writeFile(`${setup.db_path}/${setup.export}/${file}.json`, JSON.stringify(convertedJson), err => {
         if (err) {
             console.error(err);
             return

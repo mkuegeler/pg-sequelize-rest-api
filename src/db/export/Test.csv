@@ -1,7 +1,0 @@
-namespace,type,name,id,attributes,children
-svg,css,rect,canvas
-svg,css,rect,canvas,,"[""b""]"
-svg,css,rect,canvas,"",""
-svg,css,rect,canvas,"{""width"":1,""height"":1,""viewBox"":""0 0 1 1""}"
-svg,css,rect,canvas,"{""width"":1,""height"":1,""viewBox"":""0 0 1 1""}",""
-svg,css,rect,canvas,"{""width"":1,""height"":1,""viewBox"":""0 0 1 1""}","[{""name"":""circle"",""id"":""nodeCenter"",""attributes"":{""cx"":0.5,""cy"":0.5,""r"":0.5,""stroke"":""red"",""stroke-width"":0.01,""fill"":""none""}}]"
